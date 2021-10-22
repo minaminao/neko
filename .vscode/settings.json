@@ -1,5 +1,6 @@
 {
     "files.associations": {
         "*.sage": "python"
-    }
+    },
+    "python.linting.flake8Enabled": true
 }

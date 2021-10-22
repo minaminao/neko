@@ -1,4 +1,4 @@
-A = 0x9908b0df
+A = 0x9908B0DF
 B = 0x9D2C5680
 C = 0xEFC60000
 U = 11
@@ -8,8 +8,9 @@ L = 18
 M = 397
 N = 624
 W = 32
-UPPER_MASK = 0x80000000 # most significant W-R=1 bits
-LOWER_MASK = 0x7fffffff
+UPPER_MASK = 0x80000000  # most significant W-R=1 bits
+LOWER_MASK = 0x7FFFFFFF
+
 
 def inv_rightshift_xor(x, shift):
     i = 1
@@ -20,6 +21,7 @@ def inv_rightshift_xor(x, shift):
         i += 1
     return y
 
+
 def inv_leftshift_xor(x, shift, mask):
     i = 1
     y = x
@@ -29,12 +31,14 @@ def inv_leftshift_xor(x, shift, mask):
         i += 1
     return y
 
+
 def untemper(x: int) -> int:
     x = inv_rightshift_xor(x, L)
     x = inv_leftshift_xor(x, T, C)
     x = inv_leftshift_xor(x, S, B)
     x = inv_rightshift_xor(x, U)
     return x
+
 
 def calc_prev_state(state: tuple) -> tuple:
     """
@@ -53,4 +57,3 @@ def calc_prev_state(state: tuple) -> tuple:
         y = (y << 1) & LOWER_MASK
         state[i] = x | y
     return tuple(state)
-
