@@ -1,1 +1,1 @@
-__all__ = ["crypto"]
+__all__ = ["algo", "crypto"]

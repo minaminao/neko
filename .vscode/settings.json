@@ -2,5 +2,6 @@
     "files.associations": {
         "*.sage": "python"
     },
-    "python.linting.flake8Enabled": true
+    "python.linting.flake8Enabled": true,
+    "python.formatting.provider": "black"
 }
