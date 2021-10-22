@@ -1,4 +1,4 @@
-from neko.algo.sudoku import solve
+from src.neko.algo.sudoku import solve
 
 
 def test():

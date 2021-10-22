@@ -1,6 +1,6 @@
 import os
 import random
-from neko.crypto.mersenne_twister import untemper, calc_prev_state, W, N, UPPER_MASK
+from src.neko.crypto.mersenne_twister import untemper, calc_prev_state, W, N, UPPER_MASK
 
 
 def test_calc_prev_state():
