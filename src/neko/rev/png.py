@@ -23,7 +23,6 @@ def repair_idat_data(
     wrong: [(ファイルにおける開始アドレス, [候補1, 候補2, ...])]
     wrongに指定されない箇所は合っているとみなす。
     wrongはアドレスでソート済みで無ければならない。
-    Noneが指定された場合は全探索する。
     現状パレットモードでビット深度が8のみ動作を確認している。
     best_filenameに最もスコアが良いファイルが保存される。
     (候補数)^Mの全探索して最もスコアが良いものを採用
@@ -167,7 +166,6 @@ def repair_idat_data(
 def repair_png_helper(file: bytes, repair=False) -> bytes:
     """
     壊れたPNGを修正するヘルパー。各チャンクごとにCRCをチェック。
-    IDATチャンクはzlib解凍とフィルタリング解除結果を用いる。
     """
     file_len = len(file)
     SIGNATURE = bytes.fromhex("89504E470D0A1A0A")
@@ -218,11 +216,11 @@ def repair_png_helper(file: bytes, repair=False) -> bytes:
             print("Details:")
             print(f"  width: {width}")
             print(f"  height: {height}")
-            print(f"  bit_depth: {bit_depth}")
-            print(f"  color_space: {color_space}")
-            print(f"  compression_method: {compression_method}")
-            print(f"  filter_method: {filter_method}")
-            print(f"  interlace_method: {interlace_method}")
+            print(f"  bit depth: {bit_depth}")
+            print(f"  color space: {color_space}")
+            print(f"  compression method: {compression_method}")
+            print(f"  filter method: {filter_method}")
+            print(f"  interlace method: {interlace_method}")
 
         chunk_i += 1
         byte_i += chunk_len
