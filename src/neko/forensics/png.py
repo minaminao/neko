@@ -15,7 +15,7 @@ def repair_idat_data(
     color_min: int = 0,
     color_max: int = 0xFF,
     selected: list[int] = [],
-    M=2,
+    max_m=2,
     best_filename: str = "tmp.png",
 ) -> bytes:
     """
@@ -87,7 +87,7 @@ def repair_idat_data(
         best_mask = 0
 
         n_mask = 1
-        m = min(M, len(wrong) - len(selected))
+        m = min(max_m, len(wrong) - len(selected))
         for i in range(m):
             candidates_num = len(wrong[len(selected) + i][1])
             n_mask *= candidates_num
