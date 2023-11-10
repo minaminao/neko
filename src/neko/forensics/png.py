@@ -1,7 +1,6 @@
 import zlib
 import tqdm
 import copy
-import traceback
 
 
 def repair_idat_data(
@@ -147,7 +146,9 @@ def repair_idat_data(
                             print(
                                 f"{h}:",
                                 decompression.decompressed_idat_data[start:end].hex(),
-                                decompression.decompressed_idat_data[(1 + width) * (h + 1) - 16 : (1 + width) * (h + 1)].hex(),
+                                decompression.decompressed_idat_data[
+                                    (1 + width) * (h + 1) - 16 : (1 + width) * (h + 1)
+                                ].hex(),
                             )
                         with open(best_filename, "wb") as f:
                             f.write(file)

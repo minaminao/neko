@@ -7,9 +7,9 @@ def test_calc_prev_state():
     state_len = N * 4
     state0_bytes = os.urandom(state_len)
     # 32bitの整数列
-    state0 = tuple(int.from_bytes(state0_bytes[i:i + 4], "big") for i in range(0, state_len, 4))
+    state0 = tuple(int.from_bytes(state0_bytes[i : i + 4], "big") for i in range(0, state_len, 4))
     # カウンターに(N,)を指定するとstateがアップデートされる
-    random.setstate((3, state0 + (0, ), None))
+    random.setstate((3, state0 + (0,), None))
 
     # P回ステートを変化させる
     P = 100

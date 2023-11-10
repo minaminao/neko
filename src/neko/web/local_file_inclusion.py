@@ -3,7 +3,6 @@ from pathlib import Path
 
 
 def get_files(url_head="http://localhost/?a=..", username=None):
-
     filepaths = [
         # User
         "/etc/passwd",
