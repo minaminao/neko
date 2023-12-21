@@ -2,7 +2,7 @@
 
 ## Install
 ```sh
-pip install .
+pip install -e .
 ```
 
 ## Test
